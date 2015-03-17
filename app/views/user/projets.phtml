@@ -1,19 +1,25 @@
-<h3>Mes projets []</h3>
 <?php
+	echo '<h3>Mes projets ' . $projets[0]->getUser()->getIdentite() . '</h3>';
 	foreach ($projets as $projet) {
 		echo '<div class="form-inline">
 			<div class="input-group nomProjet">
 				<h5>' . $projet->getNom() . '</h5>
 			</div>
 			<div class="input-group barreAvancement">
-				<div class="progress">
-					<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-				        60%
+				<div class="progress">';
+					if ($projet->getAvancement() >= $projet->getTempsEcoule()) {
+						echo '<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: ' . $projet->getAvancement() . '%;">';
+					} else if ($projet->getAvancement() < $projet->getTempsEcoule()) {
+						echo '<div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: ' . $projet->getAvancement() . '%;">';
+					} else if (date("d-m-Y") > $projet->getDateFinPrevue()) {
+						echo '<div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: ' . $projet->getAvancement() . '%;">';
+					}
+					echo $projet->getAvancement() . '%
 					</div>
 				</div>
 			</div>
 			<div class="input-group jourRestant">
-				<h5>' . $projet->reste->format("%d jours restants") . '</h5>
+				<h5>' . $projet->getJourRestant()->format("%d jours restants") . '</h5>
 			</div>
 			<div class="input-group btnOuvrir">
 				<a class="btn btn-default" >Ouvrir...</a>
