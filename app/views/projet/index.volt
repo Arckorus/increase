@@ -1,9 +1,5 @@
-<h1>BANANA !!!!</h1>
-
 <div id="projetTitle">
-    <?php
-        echo $projet->getNom() . " [" . $equipe->getIdentite() . "]";
-    ?>
+    <h1>BANANA !!!!</h1>
 </div>
 
 <div id="projetDetail">
@@ -23,4 +19,4 @@
 </div>
 
 <a id="btnMessages" class="btn btn-default" href="">Messages</a>
-<div id="divMessages">nuggets</div>
+<div id="divMessages">ici doivent apparaitre les messages.</div>
