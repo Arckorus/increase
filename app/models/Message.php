@@ -45,6 +45,14 @@ class Message extends \Phalcon\Mvc\Model
      */
     public $idFil;
 
+	public function initialize()
+	{
+		$this->hasOne("id", "User", "id");
+		$this->belongsTo("idUser", "User", "id");
+		$this->belongsTo("idProjet", "Projet", "id");
+		$this->belongsTo("idFil", "User", "id");
+	}
+
     /**
      * Independent Column Mapping.
      */

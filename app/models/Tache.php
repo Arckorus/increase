@@ -33,6 +33,11 @@ class Tache extends \Phalcon\Mvc\Model
      */
     public $codeUseCase;
 
+	public function initialize()
+	{
+		$this->belongsTo("codeUseCase", "Usecase", "code");
+	}
+
     /**
      * Independent Column Mapping.
      */

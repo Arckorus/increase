@@ -34,8 +34,11 @@ class User extends \Phalcon\Mvc\Model
     public $role;
 
 	public function initialize() {
-		$this->hasMany("id", "projet", "idClient");
-		$this->hasMany("id", "usecase", "idDev");
+		$this->hasMany("id", "Usecase", "idDev");
+		$this->belongsTo("id", "Message", "id");
+		$this->hasMany("id", "Message", "idUser");
+		$this->hasMany("id", "Message", "idFil");
+		$this->hasMany("id", "Projet", "idClient");
 	}
 
     /**

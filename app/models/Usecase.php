@@ -41,7 +41,9 @@ class Usecase extends \Phalcon\Mvc\Model
 
 	public function initialize()
 	{
+		$this->hasMany("code", "Tache", "codeUseCase");
 		$this->belongsTo("idProjet", "Projet", "id");
+		$this->belongsTo("idDev", "User", "id");
 	}
 
     /**
