@@ -39,6 +39,13 @@ class Projet extends \Phalcon\Mvc\Model
      */
     public $idClient;
 
+	public function initialize()
+	{
+		$this->belongsTo("idClient", "User", "id");
+		$this->hasMany("id", "Message", "idProjet");
+		$this->hasMany("id", "Usecase", "idProjet");
+	}
+
     /**
      * Independent Column Mapping.
      */
