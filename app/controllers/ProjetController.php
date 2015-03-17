@@ -1,6 +1,6 @@
 <?php
 
-class ProjectController extends ControllerBase
+class ProjetController extends ControllerBase
 {
 	public function indexAction(){}
 
