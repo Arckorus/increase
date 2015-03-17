@@ -9,9 +9,6 @@
 class UserController extends Phalcon\Mvc\Controller {
 
 	public function indexAction() {
-
+		$this->view->setVar("projets", Projet::find());
 	}
-
-
-
 }
