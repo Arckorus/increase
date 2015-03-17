@@ -71,7 +71,7 @@ class User extends \Phalcon\Mvc\Model
 	/**
 	 * @return string
 	 */
-	public function getMAil()
+	public function getMail()
 	{
 		return $this->mail;
 	}
@@ -93,7 +93,7 @@ class User extends \Phalcon\Mvc\Model
 	}
 
 	/**
-	 * @param string $mail
+	 * @param string $password
 	 */
 	public function setPassword($password)
 	{
@@ -111,9 +111,24 @@ class User extends \Phalcon\Mvc\Model
 	/**
 	 * @param string $identite
 	 */
-	public function setIdendtite($identite)
+	public function setIdentite($identite)
 	{
 		$this->identite = $identite;
 	}
 
+	/**
+	 * @return string
+	 */
+	public function getRole()
+	{
+		return $this->role;
+	}
+
+	/**
+	 * @param string $role
+	 */
+	public function setRole($role)
+	{
+		$this->role = $role;
+	}
 }

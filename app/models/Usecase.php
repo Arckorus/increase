@@ -39,6 +39,11 @@ class Usecase extends \Phalcon\Mvc\Model
      */
     public $idDev;
 
+	public function initialize()
+	{
+		$this->belongsTo("idProjet", "Projet", "id");
+	}
+
     /**
      * Independent Column Mapping.
      */
@@ -54,4 +59,99 @@ class Usecase extends \Phalcon\Mvc\Model
         );
     }
 
+	/**
+	 * @return string
+	 */
+	public function getCode()
+	{
+		return $this->code;
+	}
+
+	/**
+	 * @param string $code
+	 */
+	public function setCode($code)
+	{
+		$this->code = $code;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getNom()
+	{
+		return $this->nom;
+	}
+
+	/**
+	 * @param string $nom
+	 */
+	public function setNom($nom)
+	{
+		$this->nom = $nom;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getPoids()
+	{
+		return $this->poids;
+	}
+
+	/**
+	 * @param int $poids
+	 */
+	public function setPoids($poids)
+	{
+		$this->poids = $poids;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getAvancement()
+	{
+		return $this->avancement;
+	}
+
+	/**
+	 * @param int $avancement
+	 */
+	public function setAvancement($avancement)
+	{
+		$this->avancement = $avancement;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getIdProjet()
+	{
+		return $this->idProjet;
+	}
+
+	/**
+	 * @param int $idProjet
+	 */
+	public function setIdProjet($idProjet)
+	{
+		$this->idProjet = $idProjet;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getIdDev()
+	{
+		return $this->idDev;
+	}
+
+	/**
+	 * @param int $idDev
+	 */
+	public function setIdDev($idDev)
+	{
+		$this->idDev = $idDev;
+	}
 }
