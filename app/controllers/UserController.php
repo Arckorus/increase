@@ -14,6 +14,7 @@ class UserController extends Phalcon\Mvc\Controller {
 
 	public function projetsAction($id) {
 		$projets = Projet::find(array("idClient" => $id));
+
 		$this->view->setVar("projets", $projets);
 	}
 }

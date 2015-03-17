@@ -33,6 +33,8 @@ class Projet extends \Phalcon\Mvc\Model
      */
     public $dateFinPrevue;
 
+	public $reste;
+
     /**
      *
      * @var integer
@@ -155,5 +157,12 @@ class Projet extends \Phalcon\Mvc\Model
 	public function setIdClient($idClient)
 	{
 		$this->idClient = $idClient;
+	}
+
+	public function afterFetch()
+	{
+		$dateFrom = new DateTime($this->dateFinPrevue);
+		$dateNow = new DateTime();
+		$this->reste = $dateNow->diff($dateFrom);
 	}
 }

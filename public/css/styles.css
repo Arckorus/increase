@@ -71,3 +71,34 @@ body{
     padding-left :140px;
 }
 
+.nomProjet {
+    width: 9%;
+    margin-left: 0;
+    margin-right: 1%;
+    text-align: center;
+}
+
+.barreAvancement {
+    width: 67%;
+    margin-left: 0;
+    margin-right: 1%;
+    text-align: center;
+}
+
+.jourRestant {
+    width: 13%;
+    margin-left: 0;
+    margin-right: 1%;
+    text-align: center;
+}
+
+.btnOuvrir {
+    width: 5%;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center;
+}
+
+.progress {
+    margin-bottom: 0;
+}
