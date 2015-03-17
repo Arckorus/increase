@@ -53,3 +53,5 @@ app/cache/c__xampp_htdocs_increase_app_views_index_index.volt.php
 public/css/bootstrap.min-old.css
 
 app/cache
+app/config/config.php
+.gitignore

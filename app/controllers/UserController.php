@@ -8,9 +8,10 @@
 
 class UserController extends Phalcon\Mvc\Controller {
 
-	public function indexAction()
-	{
+	public function indexAction() {
 
 	}
+
+
 
 }
