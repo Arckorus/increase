@@ -2,9 +2,10 @@
 
 class ProjetController extends ControllerBase
 {
-	public function indexAction(){
-		$this->view->setVar("equipe", User::find());
-		$this->view->setVar("projet", Projet::find());
+	public function indexAction($id){
+		$equipe = User::find(array("id" => $id));
+		$projet = Projet::find(array("idClient => $id"));
+		$this->view->setVar("equipe", $equipe);
 	}
 
 
