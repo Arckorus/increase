@@ -19,7 +19,9 @@
         <div class="second-header"></div>
         <div class="container">
             <ol class="breadcrumb">
-                <li><a href="index"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;Home</a></li>
+                <li>
+                    {{ link_to('', '<span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;Home</a>') }}
+                </li>
             </ol>
         </div>
         <div class="container">
