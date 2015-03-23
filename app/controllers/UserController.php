@@ -23,5 +23,8 @@
 		public function projetAction($id) {
 			$this->view->disableLevel(View::LEVEL_MAIN_LAYOUT);
 
+			$projet = Projet::findFirst($id);
+
+			$this->view->setVar("projet", $projet);
 		}
 	}
