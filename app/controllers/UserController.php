@@ -1,23 +1,27 @@
 <?php
 
-class UserController extends Phalcon\Mvc\Controller {
+	use Phalcon\Mvc\View;
+	use Phalcon\Mvc\Controller;
 
-	public function indexAction() {
+	class UserController extends ControllerBase {
 
-	}
+		public function indexAction() {
 
-	public function projetsAction($id) {
-		$projets = Projet::find(array("idClient" => $id));
-		$this->view->setVar("projets", $projets);
-
-		foreach ($projets as $projet) {
-			$this->jquery->getAndBindTo("#btnProjet" . $projet->getId(), "click", "user/projet/" . $projet->getId(), "#detailProjet");
 		}
 
-		$this->jquery->compile($this->view);
-	}
+		public function projetsAction($id) {
+			$projets = Projet::find(array("idClient" => $id));
+			$this->view->setVar("projets", $projets);
 
-	public function projetAction($id) {
+			foreach ($projets as $projet) {
+				$this->jquery->getAndBindTo("#btnProjet" . $projet->getId(), "click", "user/projet/" . $projet->getId(), "#detailProjet");
+			}
 
+			$this->jquery->compile($this->view);
+		}
+
+		public function projetAction($id) {
+			$this->view->disableLevel(View::LEVEL_MAIN_LAYOUT);
+
+		}
 	}
-}

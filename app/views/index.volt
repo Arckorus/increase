@@ -6,9 +6,6 @@
         {{ stylesheet_link("css/styles.css") }}
         {{ javascript_include('js/jquery.min.js') }}
         {{ javascript_include('js/bootstrap.min.js') }}
-
-        <!-- { {{ javascript_include("js/jquery-ui.min.js") }}
-        { {{ stylesheet_link("css/jquery-ui.css") }} -->
     </head>
     <body>
         <div class="bs-docs-header">
