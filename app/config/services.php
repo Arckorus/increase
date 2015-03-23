@@ -78,3 +78,10 @@ $di->set('session', function () {
 
     return $session;
 });
+
+$di->set("jquery",function(){
+	$jquery= new Ajax\JsUtils(array("driver"=>"Jquery"));
+	$jquery->ui(new Ajax\JqueryUI());//optional for Phalcon JQuery UI
+	$jquery->bootstrap(new Ajax\Bootstrap());//Optional for Phalcon Twitter Bootstrap
+	return $jquery;
+});

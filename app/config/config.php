@@ -13,8 +13,8 @@ return new \Phalcon\Config(array(
         'modelsDir'      => __DIR__ . '/../../app/models/',
         'viewsDir'       => __DIR__ . '/../../app/views/',
         'pluginsDir'     => __DIR__ . '/../../app/plugins/',
-        'libraryDir'     => __DIR__ . '/../../app/library/',
+        'libraryDir'     => __DIR__ . '/../../app/libraries/',
         'cacheDir'       => __DIR__ . '/../../app/cache/',
-        'baseUri'        => '/increase/',
+        'baseUri'        => '/FrameWorkWeb/projet/increase/',
     )
 ));

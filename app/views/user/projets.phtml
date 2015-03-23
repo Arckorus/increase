@@ -22,8 +22,15 @@
 				<h5>' . $projet->getJourRestant()->format("%d jours restants") . '</h5>
 			</div>
 			<div class="input-group btnOuvrir">
-				<a class="btn btn-default" >Ouvrir...</a>
+				<button class="btn btn-default" id="btnProjet' . $projet->getId() . '">Ouvrir...</button>
 			</div>
 		</div>';
 	}
+?>
+
+<div id="detailProjet">
+</div>
+
+<?php
+	echo $script_foot;
 ?>
