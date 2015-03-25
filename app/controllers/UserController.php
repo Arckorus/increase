@@ -10,7 +10,10 @@
 		}
 
 		public function projetsAction($id) {
-			$projets = Projet::find(array("idClient" => $id));
+			$user = User::findFirst($id);
+			$projets = $user->getProjets();
+
+			$this->view->setVar("user", $user);
 			$this->view->setVar("projets", $projets);
 
 			foreach ($projets as $projet) {
