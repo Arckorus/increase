@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+    <div id="listeProjets">
+    <div id="detailProjet">
     <head>
         <title>Increase</title>
         {{ stylesheet_link("css/bootstrap.min.css") }}

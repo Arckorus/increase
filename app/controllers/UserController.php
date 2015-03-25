@@ -49,20 +49,24 @@
 		}
 
 		public function projetAction($id) {
-			$this->view->disableLevel(View::LEVEL_MAIN_LAYOUT);
+			$projet = Projet::findFirst($id);
+			$user = $projet->getUser();
+
 
 			$messages = Message::find(array("idMessage" => $id));
-			$projet = Projet::findFirst($id);
-
-			$this->view->setVar("messages", $messages);
-			$this->view->setVar("projet", $projet);
-
 			foreach ($messages as $message) {
 				$this->jquery->getAndBindTo("#btnMessage", "click", "user/project/" . $message->getIdProjet(), "#messages");
 
 			}
+			$this->view->setVar("messages", $messages);
 
+
+			$this->jquery->get("projet/equipe/" . $projet->getId(), "#detailProje");
+
+			$this->jquery->getAndBindTo("#closeProjet", "click", "user/projets/" . $user->getId(), "#listeProjets");
+
+			$this->view->setVar("projet", $projet);
+			$this->view->setVar("user", $user);
 			$this->jquery->compile($this->view);
 		}
-
 	}

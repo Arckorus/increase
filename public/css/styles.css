@@ -102,3 +102,19 @@ body{
 .progress {
     margin-bottom: 0;
 }
+
+.panelDetailProjet {
+    background-color: #F5F5F5;
+}
+
+#tableEquipe {
+    margin-bottom: 0;
+}
+
+#panelEquipe {
+    padding: 0;
+}
+
+.tdTableEquipe {
+    width: 200px;
+}
