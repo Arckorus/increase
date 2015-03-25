@@ -15,6 +15,6 @@ return new \Phalcon\Config(array(
         'pluginsDir'     => __DIR__ . '/../../app/plugins/',
         'libraryDir'     => __DIR__ . '/../../app/libraries/',
         'cacheDir'       => __DIR__ . '/../../app/cache/',
-        'baseUri'        => '/FrameWorkWeb/projet/increase/',
+        'baseUri'        => '/increase/',
     )
 ));
