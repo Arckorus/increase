@@ -47,10 +47,10 @@ class Message extends \Phalcon\Mvc\Model
 
 	public function initialize()
 	{
-		$this->hasOne("id", "User", "id");
-		$this->belongsTo("idUser", "User", "id");
-		$this->belongsTo("idProjet", "Projet", "id");
-		$this->belongsTo("idFil", "User", "id");
+		$this->hasOne("id", "User", "id", array("alias" => "userId"));
+		$this->belongsTo("idUser", "User", "id", array("alias" => "userIdUser"));
+		$this->belongsTo("idProjet", "Projet", "id", array("alias" => "projet"));
+		$this->belongsTo("idFil", "User", "id", array("alias" => "userIdFil"));
 	}
 
     /**

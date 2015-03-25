@@ -35,7 +35,7 @@ class Tache extends \Phalcon\Mvc\Model
 
 	public function initialize()
 	{
-		$this->belongsTo("codeUseCase", "Usecase", "code");
+		$this->belongsTo("codeUseCase", "Usecase", "code", array("alias" => "usecase"));
 	}
 
     /**

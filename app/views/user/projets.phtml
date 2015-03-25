@@ -1,6 +1,6 @@
 <?php
 
-	echo '<h3>Mes projets ' . $projets[0]->getUser()->getIdentite() . '</h3>';
+	echo '<h3>Mes projets ' . $user->getIdentite() . '</h3>';
 	foreach ($projets as $projet) {
 		echo '<div class="form-inline">
 			<div class="input-group nomProjet">
