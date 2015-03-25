@@ -1,26 +1,26 @@
 <?php
 
-	echo '<h3>Mes projets ' . $user->getIdentite() . '</h3>';
-	foreach ($projets as $projet) {
+	echo '<h3>Mes projets [' . $user->getIdentite() . ']</h3>';
+	foreach ($projets as $key => $projet) {
 		echo '<div class="form-inline">
 			<div class="input-group nomProjet">
 				<h5>' . $projet->getNom() . '</h5>
 			</div>
 			<div class="input-group barreAvancement">
 				<div class="progress">';
-					if ($projet->getAvancement() >= $projet->getTempsEcoule()) {
-						echo '<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: ' . $projet->getAvancement() . '%;">';
-					} else if ($projet->getAvancement() < $projet->getTempsEcoule()) {
-						echo '<div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: ' . $projet->getAvancement() . '%;">';
+					if ($donnees[$key]['avancement'] >= $donnees[$key]['tempEcoule']) {
+						echo '<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: ' . $donnees[$key]['avancement'] . '%;">';
+					} else if ($donnees[$key]['avancement'] < $donnees[$key]['tempEcoule']) {
+						echo '<div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: ' . $donnees[$key]['avancement'] . '%;">';
 					} else if (date("d-m-Y") > $projet->getDateFinPrevue()) {
-						echo '<div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: ' . $projet->getAvancement() . '%;">';
+						echo '<div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: ' . $donnees[$key]['avancement'] . '%;">';
 					}
-					echo $projet->getAvancement() . '%
+					echo $donnees[$key]['avancement'] . '%
 					</div>
 				</div>
 			</div>
 			<div class="input-group jourRestant">
-				<h5>' . $projet->getJourRestant()->format("%d jours restants") . '</h5>
+				<h5>' . $donnees[$key]['jourRestant']->format("%d jours restants") . '</h5>
 			</div>
 			<div class="input-group btnOuvrir">
 				<button class="btn btn-default" id="btnProjet' . $projet->getId() . '">Ouvrir...</button>
