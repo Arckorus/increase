@@ -111,10 +111,32 @@ body{
     margin-bottom: 0;
 }
 
-#panelEquipe {
+.panel-detail-projet {
     padding: 0;
 }
 
 .tdTableEquipe {
     width: 200px;
+}
+
+.infoMessage:hover {
+    cursor: pointer;
+}
+
+.list-group-item:first-child, .list-group-item {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.list-group {
+    margin-bottom: 0;
+}
+
+.liste-reponse {
+    margin-left: 5%
+}
+
+.input-group-btn-repondre {
+    margin: -7px;
+    float: right
 }

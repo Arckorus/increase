@@ -3,8 +3,8 @@
 	use Phalcon\Mvc\View;
 	use Phalcon\Mvc\Controller;
 
-	class ProjetController extends ControllerBase
-	{
+	class ProjetController extends ControllerBase {
+
 		public function indexAction(){
 
 		}
@@ -37,6 +37,38 @@
 			$this->view->setVar("users", $users);
 			$this->view->setVar("poids", $poids);
 			$this->view->setVar("sommePoids", $sommePoids);
+			$this->jquery->compile($this->view);
+		}
+
+		public function messagesAction($id) {
+			$this->view->disableLevel(View::LEVEL_MAIN_LAYOUT);
+
+			$projet = Projet::findFirst($id);
+			$messages = $projet->getMessage("idFil is null");
+
+			foreach ($messages as $key => $message) {
+				$this->jquery->getAndBindTo("#getContent" . $message->getId(), "click", "projet/reponses/" . $message->getId(), "#content" . $message->getId());
+			}
+
+			$this->view->setVar("projet", $projet);
+			$this->view->setVar("messages", $messages);
+
+			$this->jquery->compile($this->view);
+		}
+
+		public function reponsesAction($id) {
+			$this->view->disableLevel(View::LEVEL_MAIN_LAYOUT);
+
+			$message = Message::findFirst($id);
+			$responses = Message::find("idFil = " . $id);
+
+			foreach ($responses as $key => $reponse) {
+				$this->jquery->getAndBindTo("#getContent" . $reponse->getId(), "click", "projet/reponses/" . $reponse->getId(), "#content" . $reponse->getId());
+			}
+
+			$this->view->setVar("message", $message);
+			$this->view->setVar("responses", $responses);
+
 			$this->jquery->compile($this->view);
 		}
 	}

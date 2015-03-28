@@ -1,0 +1,32 @@
+<a class="list-group-item">
+	<div class="row">
+		<div class="col-md-6"><?php echo $message->getContent(); ?></div>
+		<div class="col-md-6">
+			<div class="input-group input-group-btn-repondre">
+				<button class="btn btn-default">Répondre</button>
+			</div>
+		</div>
+	</div>
+</a>
+
+<div class="list-group liste-reponse">
+	<?php
+
+		foreach ($responses as $key => $response) {
+			echo '<a  id="getContent' . $response->getId() . '" class="list-group-item infoMessage">
+				<div class="row">
+					<div class="col-md-6">' . $response->getUserIdUser()->getIdentite() . ' - ' . $response->getObjet() . '</div>
+					<div class="col-md-6" style="text-align: right">' . $response->getDate() . '</div>
+				</div>
+			</a>';
+			echo '<div id="content' . $response->getId() . '"></div>';
+		}
+
+	?>
+</div>
+
+<?php
+	if (isset($script_foot)) {
+		echo $script_foot;
+	}
+?>

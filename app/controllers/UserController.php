@@ -42,7 +42,7 @@
 			$this->view->setVar("donnees", $donnees);
 
 			foreach ($projets as $projet) {
-				$this->jquery->getAndBindTo("#btnProjet" . $projet->getId(), "click", "user/projet/" . $projet->getId(), "#detailProjet");
+				$this->jquery->getAndBindTo("#btnProjet" . $projet->getId(), "click", "user/projet/" . $projet->getId(), "#infoProjet");
 			}
 
 			$this->jquery->compile($this->view);
@@ -50,23 +50,18 @@
 
 		public function projetAction($id) {
 			$projet = Projet::findFirst($id);
+			$this->jquery->get("projet/equipe/" . $projet->getId(), "#detailProjet");
+
+			$messages = $projet->getMessage();
+			$this->jquery->getAndBindTo("#btnMessages", "click", "projet/messages/" . $projet->getId(), "#divMessages");
+
 			$user = $projet->getUser();
-
-
-			$messages = Message::find(array("idMessage" => $id));
-			foreach ($messages as $message) {
-				$this->jquery->getAndBindTo("#btnMessage", "click", "user/project/" . $message->getIdProjet(), "#messages");
-
-			}
-			$this->view->setVar("messages", $messages);
-
-
-			$this->jquery->get("projet/equipe/" . $projet->getId(), "#detailProje");
-
 			$this->jquery->getAndBindTo("#closeProjet", "click", "user/projets/" . $user->getId(), "#listeProjets");
 
 			$this->view->setVar("projet", $projet);
+			$this->view->setVar("messages", $messages);
 			$this->view->setVar("user", $user);
+
 			$this->jquery->compile($this->view);
 		}
 	}
