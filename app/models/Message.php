@@ -1,183 +1,167 @@
 <?php
 
-class Message extends \Phalcon\Mvc\Model
-{
-
-    /**
-     *
-     * @var integer
-     */
-    public $id;
-
-    /**
-     *
-     * @var string
-     */
-    public $objet;
-
-    /**
-     *
-     * @var string
-     */
-    public $content;
-
-    /**
-     *
-     * @var string
-     */
-    public $date;
-
-    /**
-     *
-     * @var integer
-     */
-    public $idUser;
-
-    /**
-     *
-     * @var integer
-     */
-    public $idProjet;
-
-    /**
-     *
-     * @var integer
-     */
-    public $idFil;
-
-	public function initialize()
+	class Message extends \Phalcon\Mvc\Model
 	{
-		$this->hasOne("id", "User", "id", array("alias" => "userId"));
-		$this->belongsTo("idUser", "User", "id", array("alias" => "userIdUser"));
-		$this->belongsTo("idProjet", "Projet", "id", array("alias" => "projet"));
-		$this->belongsTo("idFil", "User", "id", array("alias" => "userIdFil"));
-	}
 
-    /**
-     * Independent Column Mapping.
-     */
-    public function columnMap()
-    {
-        return array(
-            'id' => 'id', 
-            'objet' => 'objet', 
-            'content' => 'content', 
-            'date' => 'date', 
-            'idUser' => 'idUser', 
-            'idProjet' => 'idProjet', 
-            'idFil' => 'idFil'
-        );
-    }
+		/**
+		 *
+		 * @var integer
+		 */
+		public $id;
 
-	/**
-	 * @return int
-	 */
-	public function getId()
-	{
-		return $this->id;
-	}
+		/**
+		 *
+		 * @var string
+		 */
+		public $objet;
 
-	/**
-	 * @param int $id
-	 */
-	public function setId($id)
-	{
-		$this->id = $id;
-	}
+		/**
+		 *
+		 * @var string
+		 */
+		public $content;
 
-	/**
-	 * @return string
-	 */
-	public function getObjet()
-	{
-		return $this->objet;
-	}
+		/**
+		 *
+		 * @var string
+		 */
+		public $date;
 
-	/**
-	 * @param string $objet
-	 */
-	public function setObjet($objet)
-	{
-		$this->objet = $objet;
-	}
+		/**
+		 *
+		 * @var integer
+		 */
+		public $idUser;
 
-	/**
-	 * @return string
-	 */
-	public function getContent()
-	{
-		return $this->content;
-	}
+		/**
+		 *
+		 * @var integer
+		 */
+		public $idProjet;
 
-	/**
-	 * @param string $content
-	 */
-	public function setContent($content)
-	{
-		$this->content = $content;
-	}
+		/**
+		 *
+		 * @var integer
+		 */
+		public $idFil;
 
-	/**
-	 * @return string
-	 */
-	public function getDate()
-	{
-		return $this->date;
-	}
+		public function initialize()
+		{
+			$this->hasOne("id", "User", "id", array("alias" => "userId"));
+			$this->belongsTo("idUser", "User", "id", array("alias" => "userIdUser"));
+			$this->belongsTo("idProjet", "Projet", "id", array("alias" => "projet"));
+			$this->belongsTo("idFil", "User", "id", array("alias" => "userIdFil"));
+		}
 
-	/**
-	 * @param string $date
-	 */
-	public function setDate($date)
-	{
-		$this->date = $date;
-	}
+		/**
+		 * @return int
+		 */
+		public function getId()
+		{
+			return $this->id;
+		}
 
-	/**
-	 * @return int
-	 */
-	public function getIdUser()
-	{
-		return $this->idUser;
-	}
+		/**
+		 * @param int $id
+		 */
+		public function setId($id)
+		{
+			$this->id = $id;
+		}
 
-	/**
-	 * @param int $idUser
-	 */
-	public function setIdUser($idUser)
-	{
-		$this->idUser = $idUser;
-	}
+		/**
+		 * @return string
+		 */
+		public function getObjet()
+		{
+			return $this->objet;
+		}
 
-	/**
-	 * @return int
-	 */
-	public function getIdProjet()
-	{
-		return $this->idProjet;
-	}
+		/**
+		 * @param string $objet
+		 */
+		public function setObjet($objet)
+		{
+			$this->objet = $objet;
+		}
 
-	/**
-	 * @param int $idProjet
-	 */
-	public function setIdProjet($idProjet)
-	{
-		$this->idProjet = $idProjet;
-	}
+		/**
+		 * @return string
+		 */
+		public function getContent()
+		{
+			return $this->content;
+		}
 
-	/**
-	 * @return int
-	 */
-	public function getIdFil()
-	{
-		return $this->idFil;
-	}
+		/**
+		 * @param string $content
+		 */
+		public function setContent($content)
+		{
+			$this->content = $content;
+		}
 
-	/**
-	 * @param int $idFil
-	 */
-	public function setIdFil($idFil)
-	{
-		$this->idFil = $idFil;
+		/**
+		 * @return string
+		 */
+		public function getDate()
+		{
+			return $this->date;
+		}
+
+		/**
+		 * @param string $date
+		 */
+		public function setDate($date)
+		{
+			$this->date = $date;
+		}
+
+		/**
+		 * @return int
+		 */
+		public function getIdUser()
+		{
+			return $this->idUser;
+		}
+
+		/**
+		 * @param int $idUser
+		 */
+		public function setIdUser($idUser)
+		{
+			$this->idUser = $idUser;
+		}
+
+		/**
+		 * @return int
+		 */
+		public function getIdProjet()
+		{
+			return $this->idProjet;
+		}
+
+		/**
+		 * @param int $idProjet
+		 */
+		public function setIdProjet($idProjet)
+		{
+			$this->idProjet = $idProjet;
+		}
+
+		/**
+		 * @return int
+		 */
+		public function getIdFil()
+		{
+			return $this->idFil;
+		}
+
+		/**
+		 * @param int $idFil
+		 */
+		public function setIdFil($idFil)
+		{
+			$this->idFil = $idFil;
+		}
 	}
-}

@@ -3,21 +3,24 @@
 	use Phalcon\Mvc\View;
 	use Phalcon\Mvc\Controller;
 
-	class ProjetController extends ControllerBase {
+	class ProjetController extends ControllerBase
+	{
 
-		public function indexAction(){
+		public function indexAction()
+		{
 
 		}
 
-		public function equipeAction($id) {
+		public function equipeAction($id)
+		{
 			$this->view->disableLevel(View::LEVEL_MAIN_LAYOUT);
 
-			$projet = Projet::findFirst($id);
+			$projet   = Projet::findFirst($id);
 			$usecases = $projet->getUsecase();
 
 			$users = array();
 			$poids = array();
-			foreach ($usecases as $key => $usecase){
+			foreach ($usecases as $key => $usecase) {
 				if (!in_array($usecase->getUser(), $users)) {
 					$users[$key] = $usecase->getUser();
 					$poids[$key] = 0;
@@ -40,10 +43,11 @@
 			$this->jquery->compile($this->view);
 		}
 
-		public function messagesAction($id) {
+		public function messagesAction($id)
+		{
 			$this->view->disableLevel(View::LEVEL_MAIN_LAYOUT);
 
-			$projet = Projet::findFirst($id);
+			$projet   = Projet::findFirst($id);
 			$messages = $projet->getMessage("idFil is null");
 
 			foreach ($messages as $key => $message) {
@@ -56,10 +60,11 @@
 			$this->jquery->compile($this->view);
 		}
 
-		public function reponsesAction($id) {
+		public function reponsesAction($id)
+		{
 			$this->view->disableLevel(View::LEVEL_MAIN_LAYOUT);
 
-			$message = Message::findFirst($id);
+			$message   = Message::findFirst($id);
 			$responses = Message::find("idFil = " . $id);
 
 			foreach ($responses as $key => $reponse) {
@@ -72,7 +77,8 @@
 			$this->jquery->compile($this->view);
 		}
 
-		public function authorAction($idProjet, $idAuthor) {
+		public function authorAction($idProjet, $idAuthor)
+		{
 			$this->view->disableLevel(View::LEVEL_MAIN_LAYOUT);
 
 			$usecases = Usecase::find(array("idDev = " . $idAuthor, "idProjet = " . $idProjet));

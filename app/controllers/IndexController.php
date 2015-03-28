@@ -1,12 +1,11 @@
 <?php
 
-class IndexController extends ControllerBase
-{
+	class IndexController extends ControllerBase
+	{
 
-    public function indexAction()
-    {
+		public function indexAction()
+		{
 
-    }
+		}
 
-}
-
+	}

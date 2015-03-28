@@ -3,19 +3,22 @@
 	use Phalcon\Mvc\View;
 	use Phalcon\Mvc\Controller;
 
-	class AuthorController extends ControllerBase {
+	class AuthorController extends ControllerBase
+	{
 
-		public function indexAction() {
+		public function indexAction()
+		{
 
 		}
 
-		public function projetsAction($id) {
-			$user = User::findFirst($id);
+		public function projetsAction($id)
+		{
+			$user     = User::findFirst($id);
 			$usecases = $user->getUsecase();
 
 			$projets = array();
 
-			foreach($usecases as $key => $usecase) {
+			foreach ($usecases as $key => $usecase) {
 				if (!in_array($usecase->getProjet(), $projets)) {
 					$projets[$key] = $usecase->getProjet();
 				}
@@ -39,8 +42,8 @@
 				$donnees[$key]['avancement'] = round($avancement);
 
 				// Calcul du temps écoulé, en %.
-				$nbJourTotal = floor(abs(strtotime($projet->getDateLancement()) - strtotime($projet->getDateFinPrevue())) / (60 * 60 * 24));
-				$nbJourEcoule = floor(abs(strtotime($projet->getDateLancement()) - strtotime(date("d-m-Y"))) / (60 * 60 * 24));
+				$nbJourTotal                 = floor(abs(strtotime($projet->getDateLancement()) - strtotime($projet->getDateFinPrevue())) / (60 * 60 * 24));
+				$nbJourEcoule                = floor(abs(strtotime($projet->getDateLancement()) - strtotime(date("d-m-Y"))) / (60 * 60 * 24));
 				$donnees[$key]['tempEcoule'] = round(($nbJourEcoule * 100) / $nbJourTotal);
 			}
 
@@ -56,7 +59,8 @@
 			$this->jquery->compile($this->view);
 		}
 
-		public function projetAction($id) {
+		public function projetAction($id)
+		{
 			$projet = Projet::findFirst($id);
 			$this->jquery->get("projet/author/" . $projet->getId() . "/2", "#detailProjet");
 

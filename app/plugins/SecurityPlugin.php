@@ -28,7 +28,7 @@
 
 				//Register roles
 				$roles = array(
-					'users'  => new Role('Users'),
+					'users'   => new Role('Users'),
 					'authors' => new Role('Authors')
 				);
 
@@ -38,7 +38,7 @@
 
 				//Private area resources for users
 				$privateUsersResources = array(
-					'user' => array('index', 'projets', 'projet'),
+					'user'   => array('index', 'projets', 'projet'),
 					'projet' => array('index', 'equipe', 'messages', 'reponses'),
 				);
 
@@ -48,8 +48,8 @@
 
 				//Private area resources for authors
 				$privateAuthorsResources = array(
-					'author' => array('index', 'projets', 'projet'),
-					'projet' => array('index', 'messages', 'reponses', 'author'),
+					'author'  => array('index', 'projets', 'projet'),
+					'projet'  => array('index', 'messages', 'reponses', 'author'),
 					'usecase' => array('index', 'taches'),
 				);
 
@@ -59,8 +59,8 @@
 
 				//Public area resources
 				$publicResources = array(
-					'index'    => array('index'),
-					'session'  => array('index', 'register', 'start', 'end'),
+					'index'   => array('index'),
+					'session' => array('index', 'register', 'start', 'end'),
 				);
 
 				foreach ($publicResources as $resource => $actions) {

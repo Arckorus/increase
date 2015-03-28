@@ -42,8 +42,12 @@
 		<button class="btn btn-default" id="closeProjet">Fermer le projet</button>
 	</div>';
 
-	echo $script_foot;
+?>
 
+<?php
+	if (isset($script_foot)) {
+		echo $script_foot;
+	}
 ?>
 
 </div>

@@ -2,13 +2,13 @@
 	<div class="panel-heading">Équipe</div>
 	<div class="panel-body panel-detail-projet">
 		<table class="table table-striped" id="tableEquipe">
-		<?php
+			<?php
 
-			foreach ($users as $key => $user) {
-				echo '<tr><td class="tdTableEquipe">' . $user->getIdentite() . '</td><td>Poids : ' . round($poids[$key] / $sommePoids * 100) . ' %</td></tr>';
-			}
+				foreach ($users as $key => $user) {
+					echo '<tr><td class="tdTableEquipe">' . $user->getIdentite() . '</td><td>Poids : ' . round($poids[$key] / $sommePoids * 100) . ' %</td></tr>';
+				}
 
-		?>
+			?>
 		</table>
 	</div>
 </div>

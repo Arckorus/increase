@@ -11,7 +11,8 @@
 
 		}
 
-		public function tachesAction($id) {
+		public function tachesAction($id)
+		{
 			$this->view->disableLevel(View::LEVEL_MAIN_LAYOUT);
 
 			$taches = Tache::findByCodeUseCase($id);
