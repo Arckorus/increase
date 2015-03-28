@@ -140,3 +140,7 @@ body{
     margin: -7px;
     float: right
 }
+
+.input-group-new-message {
+    float: right
+}
