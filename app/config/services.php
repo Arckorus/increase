@@ -55,10 +55,11 @@ $di->set('view', function () use ($config) {
  */
 $di->set('db', function () use ($config) {
     return new DbAdapter(array(
-        'host' => $config->database->host,
-        'username' => $config->database->username,
-        'password' => $config->database->password,
-        'dbname' => $config->database->dbname
+	    'host'     => $config->database->host,
+	    'username' => $config->database->username,
+	    'password' => $config->database->password,
+	    'dbname'   => $config->database->dbname,
+	    'charset'  => $config->database->charset
     ));
 });
 
@@ -81,7 +82,7 @@ $di->set('session', function () {
 
 $di->set("jquery",function(){
 	$jquery= new Ajax\jsUtils(array("driver"=>"Jquery"));
-	$jquery->ui(new Ajax\JqueryUI());//optional for Phalcon JQuery UI
+	//$jquery->ui(new Ajax\JqueryUI());//optional for Phalcon JQuery UI
 	$jquery->bootstrap(new Ajax\Bootstrap());//Optional for Phalcon Twitter Bootstrap
 	return $jquery;
 });
