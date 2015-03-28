@@ -1,0 +1,37 @@
+<?php
+	if(count($taches) > 0) {
+		foreach ($taches as $tache) {
+?>
+			<a class="list-group-item tache" id="tache<?php echo $tache->getId(); ?>">
+				<div class="row">
+					<div class="col-md-5"><?php echo $tache->getLibelle(); ?></div>
+					<div class="col-md-5">Avancement : <?php echo $tache->getAvancement(); ?>%</div>
+					<div class="col-md-2"><?php echo $tache->getDate(); ?> </div>
+				</div>
+			</a>
+<?php
+		}
+?>
+		<div>
+			<div class="input-group btn-tache">
+				<button class="btn btn-default">+ Ajouter une tâche</button>
+			</div>
+			<span class="span-button-display">
+				<div class="input-group btn-tache">
+					<button class="btn btn-default">Modifier...</button>
+				</div>
+				<div class="input-group btn-tache">
+					<button class="btn btn-default">Supprimer</button>
+				</div>
+			</span>
+		</div>
+		<br>
+<?php
+	}
+?>
+
+<?php
+	if (isset($script_foot)) {
+		echo $script_foot;
+	}
+?>

@@ -5,7 +5,7 @@
 		<?php
 
 			foreach ($messages as $key => $message) {
-				echo '<a class="list-group-item infoMessage" id="getContent' .  $message->getId() . '">
+				echo '<a class="list-group-item infoMessage" id="getContent' . $message->getId() . '">
 					<div class="row">
 						<div class="col-md-6">' . $message->getUserIdUser()->getIdentite() . ' - ' . $message->getObjet() . '</div>
 						<div class="col-md-6" style="text-align: right">' . $message->getDate() . '</div>
@@ -15,7 +15,6 @@
 			}
 
 		?>
-
 		</div>
 		<br>
 		<div class="input-group input-group-new-message">

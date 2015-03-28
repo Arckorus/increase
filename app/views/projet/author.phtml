@@ -2,7 +2,33 @@
 	<div class="panel-heading">Mes Uses Cases</div>
 	<div class="panel-body panel-detail-projet">
 		<table class="table table-striped" id="tableEquipe">
-			
+		<div class="list-group">
+		<?php
+
+			foreach ($usecases as $usecase)	{
+				echo '<a class="list-group-item infoMessage" id="getUseCase-' .  $usecase->getCode() . '">
+					<div class="row">
+						<div class="col-md-3" style="text-align: center">' . $usecase->getNom() . '</div>
+						<div class="col-md-2" style="text-align: center">Poids : ' . $usecase->getPoids() . '</div>
+						<div class="col-md-5">
+							<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: ' . $usecase->getAvancement() . '%;">
+								' . $usecase->getAvancement() . '
+							</div>
+						</div>
+						<div class="col-md-2" style="text-align: center">' . count($usecase->getTache()) . ' tâche(s)</div>
+					</div>
+				</a>';
+				echo '<div id="divUseCase-' . $usecase->getCode() . '"></div>';
+			}
+
+		?>
+		</div>
 		</table>
 	</div>
 </div>
+
+<?php
+	if (isset($script_foot)) {
+		echo $script_foot;
+	}
+?>

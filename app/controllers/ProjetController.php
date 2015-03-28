@@ -75,6 +75,14 @@
 		public function authorAction($idProjet, $idAuthor) {
 			$this->view->disableLevel(View::LEVEL_MAIN_LAYOUT);
 
+			$usecases = Usecase::find(array("idDev = " . $idAuthor, "idProjet = " . $idProjet));
+
+			foreach ($usecases as $key => $usecase) {
+				$this->jquery->getAndBindTo("#getUseCase-" . $usecase->getCode(), "click", "usecase/taches/" . $usecase->getCode(), "#divUseCase-" . $usecase->getCode());
+			}
+
+			$this->view->setVar("usecases", $usecases);
+
 			$this->jquery->compile($this->view);
 		}
 	}

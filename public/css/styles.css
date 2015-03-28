@@ -144,3 +144,11 @@ body{
 .input-group-new-message {
     float: right
 }
+
+.span-button-display {
+    display: none;
+}
+
+.btn-tache {
+    display: inline;
+}
