@@ -71,4 +71,10 @@
 
 			$this->jquery->compile($this->view);
 		}
+
+		public function authorAction($idProjet, $idAuthor) {
+			$this->view->disableLevel(View::LEVEL_MAIN_LAYOUT);
+
+			$this->jquery->compile($this->view);
+		}
 	}

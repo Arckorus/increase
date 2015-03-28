@@ -1,0 +1,49 @@
+<?php
+
+	echo '<br><div class="row">
+		<div class="col-xs-3">
+			<a href="#" class="thumbnail">
+				<img src="' . '" alt="' . $projet->getNom() . '">
+			</a>
+		</div>
+		<div class="col-xs-9">
+			<div class="panel panel-default">
+				<div class="panel-body panelDetailProjet">' . $projet->getNom() . ' [' . $user->getIdentite() . ']</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">Détails du projet</div>
+				<div class="panel-body">
+					<div class="col-md-12 text-justify">
+						<strong>Description :</strong><br>
+						' . $projet->getDescription() . '<br><br>
+					</div>
+					<div class="col-md-6">
+						<strong>Date de création :</strong><br>
+						' . $projet->getDateLancement() . '
+					</div>
+					<div class="col-md-6">
+						<strong>Date de mise à jour :</strong><br>
+						' . $projet->getDateFinPrevue() . '
+					</div>
+				</div>
+			</div>
+			<div id="detailProjet">
+
+			</div>
+			<div class="input-group">
+				<button class="btn btn-default" id="btnMessages">' . count($messages) . ' Messages...</button>
+			</div><br>
+			<div id="divMessages">
+
+			</div>
+		</div>
+	</div>
+	<div class="input-group">
+		<button class="btn btn-default" id="closeProjet">Fermer le projet</button>
+	</div>';
+
+	echo $script_foot;
+
+?>
+
+</div>
