@@ -83,7 +83,7 @@
 					}
 				}
 
-				//Grant access to private area to role Users
+				//Grant access to private area to role Authors
 				foreach ($privateAuthorsResources as $resource => $actions) {
 					foreach ($actions as $action) {
 						$acl->allow('Authors', $resource, $action);

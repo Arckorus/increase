@@ -18,6 +18,7 @@
 
 			$projets = array();
 
+			// On remplit le tableau des projets.
 			foreach ($usecases as $key => $usecase) {
 				if (!in_array($usecase->getProjet(), $projets)) {
 					$projets[$key] = $usecase->getProjet();
@@ -26,6 +27,7 @@
 
 			$donnees = array();
 
+			// On remplit un tableau contenant les calculs, la correspondance entre le projet et le sous-tableau se fait via la variable $key du foreach.
 			foreach ($projets as $key => $projet) {
 				// Calcul du nombre de jour restant.
 				$donnees[$key]['jourRestant'] = (new DateTime(date("d-m-Y")))->diff(new DateTime($projet->getDateFinPrevue()));
@@ -52,6 +54,7 @@
 			$this->view->setVar("projets", $projets);
 			$this->view->setVar("donnees", $donnees);
 
+			// Clic sur les boutons "Ouvrir...", pour afficher le détail du projet.
 			foreach ($projets as $projet) {
 				$this->jquery->getAndBindTo("#btnProjet" . $projet->getId(), "click", "author/projet/" . $projet->getId(), "#infoProjet");
 			}
@@ -65,9 +68,13 @@
 			$this->jquery->get("projet/author/" . $projet->getId() . "/2", "#detailProjet");
 
 			$messages = $projet->getMessage();
+
+			// Clic sur le bouton "X Messages...", pour afficher les messages (d'abord ceux du premier niveau de subordination).
 			$this->jquery->getAndBindTo("#btnMessages", "click", "projet/messages/" . $projet->getId(), "#divMessages");
 
 			$user = $projet->getUser();
+
+			// Clic sur le bouton "Fermer le projet", pour retourner à la liste des projets.
 			$this->jquery->getAndBindTo("#closeProjet", "click", "user/projets/" . $user->getId(), "#listeProjets");
 
 			$this->view->setVar("projet", $projet);

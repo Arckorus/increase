@@ -15,6 +15,7 @@
 		public function indexAction()
 		{
 			if (!$this->request->isPost()) {
+				// Identifiants qui permettent la connexion en tant que user.
 				$this->tag->setDefault('mail', 'johndoe@kobject.net ');
 				$this->tag->setDefault('password', '0000');
 			}
@@ -41,6 +42,7 @@
 				$mail     = $this->request->getPost('mail');
 				$password = $this->request->getPost('password');
 
+				// On teste si les informations renseignées sont correctes.
 				$user = User::findFirst(array(
 					"mail = :mail: AND password = :password:",
 					'bind' => array('mail' => $mail, 'password' => $this->javaToPhpSha($password))
